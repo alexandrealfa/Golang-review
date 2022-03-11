@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Defer Posterga a execução do item setado até antes do return do bloco de código em que está inserido.
+//Defer Posterga a execução do item setado até antes do return do bloco de código em que está inserido.
 
 func visualization() {
 	fmt.Println("Visualizing first value")
