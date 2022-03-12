@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-/* Com funções closures, eu consigo definir comportamentos pre-definidos para serem executados antes de determinada funçã, atraves de um encadeamento de funções.
+/* Com funções closures, eu consigo definir comportamentos pre-definidos para serem executados antes de determinada função, atraves de um encadeamento de funções.
 assim como também é possível definir e atribuir valores a variáveis que ficam armazenadas dentro da função closure, e que podem ser acessadas
 nas enclosured functions.
 */
@@ -31,6 +31,6 @@ func main() {
 	fmt.Println(countText("alexandre"))     // rtn: 9 9 alexandre
 	fmt.Println(countText("acrescentando")) // rtn: 22 13 acrescentando
 
-	fmt.Println(countOthersText("novoAcumulator"))        // 14 14 novoAcumulator
-	fmt.Println(countOthersText("acrescentando ao novo")) //  35 21 acrescentando ao novo
+	fmt.Println(countOthersText("novoAcumulator"))        // rtn: 14 14 novoAcumulator
+	fmt.Println(countOthersText("acrescentando ao novo")) // rtn:  35 21 acrescentando ao novo
 }
