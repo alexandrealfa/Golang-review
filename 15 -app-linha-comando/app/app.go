@@ -30,8 +30,9 @@ func Generate() *cli.App {
 }
 
 func buscarIps(c *cli.Context) {
-	host := c.String("host") //c.Command.Flags.value
+	host := c.String("host")
 	ips, err := net.LookupIP(host)
+
 	if err != nil {
 		log.Fatal(err)
 	}
