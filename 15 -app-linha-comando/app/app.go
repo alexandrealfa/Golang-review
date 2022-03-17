@@ -7,8 +7,15 @@ import (
 	"net"
 )
 
-// Generate irá retornar a aplicação de linha de comando pronta para ser executada.
+// Generate é uma função que irá retornar uma instancia de uma aplicação de linha de comando pronta para ser usada.
 func Generate() *cli.App {
+	/*
+		- app : = cli.NewApp(), app está instanciando uma nova aplicação.
+		- app.Name , está setando o nome da aplicação.
+		- app.Usage, está sendo setado a mensagem de usabilidade da aplicação;
+		- app.Commands, é onde se registra os comandos da aplicação.
+	*/
+
 	app := cli.NewApp()
 	app.Name = "Aplicação de linha de comando"
 	app.Usage = "Busca Ips e nomes de servidores na internet"
@@ -22,14 +29,15 @@ func Generate() *cli.App {
 					Value: "devbook.com.br",
 				},
 			},
-			Action: buscarIps,
+			Action: searchIps,
 		},
 	}
 
 	return app
 }
 
-func buscarIps(c *cli.Context) {
+// SearchIps é uma função que captura os dados de host do cli, e lista todos os ips contidos nele.
+func searchIps(c *cli.Context) {
 	host := c.String("host")
 	ips, err := net.LookupIP(host)
 
