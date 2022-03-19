@@ -54,9 +54,9 @@ func main() {
 	}
 }
 
-func escrever(texto string, canal chan string) {
+func escrever(text string, canal chan string) {
 	for i := 0; i < 5; i++ {
-		canal <- texto
+		canal <- text
 		time.Sleep(time.Second)
 	}
 	close(canal)
