@@ -11,6 +11,7 @@ func main() {
 	go worker(tarefas, resultados, "worker-2: ")
 	go worker(tarefas, resultados, "worker-3: ")
 	go worker(tarefas, resultados, "worker-4: ")
+	go worker(tarefas, resultados, "worker-5: ")
 
 	for value := 0; value < 45; value++ {
 		tarefas <- value
