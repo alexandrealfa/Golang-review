@@ -2,6 +2,11 @@ package enderecos
 
 import "testing"
 
+type testScenario struct {
+	addressToTest   string
+	addressExpected string
+}
+
 /*
  => Unit Tests:
  O nome da função de test é declarada com a inicial Test e na sequência o nome da função que será testada, em camelCase.
@@ -9,23 +14,28 @@ import "testing"
 */
 
 func TestTipoDeEndereco(t *testing.T) {
-	addressToTest := "Avenida Paulista"
 
-	// Definindo o tipo de endereco esperado
-	addressTypeExpected := "avenida"
+	testsScenario := []testScenario{
+		{"Rua Teste", "rua"},
+		{"Avenida Mato Grosso", "avenida"},
+		{"Praça Teste", "Tipo Invalido"},
+		{"Estrada Teste", "estrada"},
+		{"Avenida Teste", "avenida"},
+	}
 
-	// Definindo o tipo de endereco recebido, ao executar a função a ser testada.
-	addressTypeReceived := TipoDeEndereco(addressToTest)
+	for _, scenario := range testsScenario {
+		// Definindo o tipo de endereco recebido, ao executar a função a ser testada.
+		addressTypeReceived := TipoDeEndereco(scenario.addressToTest)
 
-	/* Faz a validação se o valor recebido pela função a ser testada, é diferente do retorno esperado pela mesma
-	caso sejam diferentes aponta ele reprova o test, caso contrario o test passa.
+		/* Faz a validação se o valor recebido pela função a ser testada, é diferente do retorno esperado pela mesma
+		caso sejam diferentes aponta ele reprova o test, caso contrario o test passa.
 
-	Para rodar o test basta rodar o comando ```go test``` no terminal.
-	*/
-	if addressTypeReceived != addressTypeExpected {
-		t.Errorf("O tipo de endereço recebido é diferente do tipo de endereço esperado!, esperava: %s, recebido: %s.",
-			addressTypeExpected,
-			addressTypeReceived,
-		)
+		Para rodar o test basta rodar o comando ```go test``` no terminal.
+		*/
+		if addressTypeReceived != scenario.addressExpected {
+			t.Errorf("O Formato recebido não é compativel com o esperado. Recebido: %s, Esperado: %s",
+				addressTypeReceived,
+				scenario.addressExpected)
+		}
 	}
 }
