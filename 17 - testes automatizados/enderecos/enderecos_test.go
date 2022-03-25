@@ -23,6 +23,9 @@ func TestTipoDeEndereco(t *testing.T) {
 	Para rodar o test basta rodar o comando ```go test``` no terminal.
 	*/
 	if addressTypeReceived != addressTypeExpected {
-		t.Error("O tipo de endereço recebido é diferente do tipo de endereço esperado!.")
+		t.Errorf("O tipo de endereço recebido é diferente do tipo de endereço esperado!, esperava: %s, recebido: %s.",
+			addressTypeExpected,
+			addressTypeReceived,
+		)
 	}
 }
