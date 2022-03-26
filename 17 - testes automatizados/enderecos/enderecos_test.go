@@ -1,6 +1,9 @@
-package enderecos
+package enderecos_test
 
-import "testing"
+import (
+	. "introducao-testes/enderecos"
+	"testing"
+)
 
 type testScenario struct {
 	addressToTest   string
