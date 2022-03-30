@@ -25,6 +25,7 @@ func marshalExample() {
 
 	/* json.Marshal é o método utilizado para converter um struct em um formato JSON, esse método retorna dois valores,
 	um o valor da conversão e o outro o valor para erro */
+
 	pessoaJSON, err := json.Marshal(pessoa1)
 
 	if err != nil {
@@ -69,6 +70,7 @@ func unmarshalExample() {
 
 	pessoa2JSON := `{"nome": "Alexandre", "idade": "23"}`
 	pessoa2 := make(map[string]string)
+
 	if err := json.Unmarshal([]byte(pessoa2JSON), &pessoa2); err != nil {
 		log.Fatal(err)
 	}
