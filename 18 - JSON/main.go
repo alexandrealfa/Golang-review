@@ -10,6 +10,7 @@ import (
 /* Com a notação `json:"key"` é indicado o nome desse campo ao ser convertido em um json, ou seja,
 a key Name, ao ser convertida em Json será chamada, "nome".
 */
+
 type person struct {
 	Name string `json:"nome"`
 	Age  uint   `json:"idade"`
