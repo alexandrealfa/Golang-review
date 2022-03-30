@@ -1,0 +1,9 @@
+{
+  "nome": "Alexandre",
+  "idade": 23,
+  "cursos": [
+    {
+      "nome": "GTI"
+    }
+  ]
+}
