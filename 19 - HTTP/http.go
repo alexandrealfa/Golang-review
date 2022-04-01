@@ -17,7 +17,6 @@ func home(w http.ResponseWriter, _ *http.Request) {
 	if err != nil {
 		return
 	}
-
 }
 
 func main() {
