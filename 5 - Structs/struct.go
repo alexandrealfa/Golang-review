@@ -18,6 +18,11 @@ type userCompleted struct {
 	endereco
 }
 
+type Completed struct {
+	user     user
+	endereco endereco
+}
+
 func main() {
 	var usuario user
 	usuario.nome = "alexandre"
@@ -38,6 +43,12 @@ func main() {
 		endereco: enderecoNovo,
 	}
 
+	completed := Completed{
+		user:     usuario3,
+		endereco: enderecoNovo,
+	}
+
 	fmt.Println(new_user.rua)
+	fmt.Println(completed.user.nome)
 
 }
