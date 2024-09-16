@@ -26,10 +26,7 @@ func getCep(w http.ResponseWriter, r *http.Request) {
 
 	cepStruct, err := cepService.GetCepByParam(cep)
 	if err != nil {
-		_, err = w.Write([]byte("cep Não Encontrado"))
-		if err != nil {
-			return
-		}
+		_, _ = w.Write([]byte("cep Não Encontrado"))
 	} else {
 		if err = json.NewEncoder(w).Encode(cepStruct); err != nil {
 			fmt.Println(err)
