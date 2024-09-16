@@ -46,4 +46,19 @@ func main() {
 
 	// Não é possível usar range in struct
 
+	// loop em map de structs
+	type Book struct {
+		Name      string `json:"name,omitempty"`
+		Pages     int    `json:"pages,omitempty"`
+		PagesRead int    `json:"pages_read,omitempty"`
+	}
+
+	myBook := Book{"Python for data Analisys", 634, 234}
+	newBook := Book{"Introduction to Golang", 634, 234}
+
+	alfaCollection := []Book{myBook, newBook}
+
+	for _, book := range alfaCollection {
+		fmt.Println(book.Name, book.Pages)
+	}
 }
