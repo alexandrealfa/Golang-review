@@ -25,6 +25,7 @@ func processString(a string, b string) string {
 			res = append(res, char)
 		}
 	}
+
 	sort.Strings(res)
 
 	return strings.Join(res, "")
