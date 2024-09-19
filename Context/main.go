@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -11,14 +12,14 @@ import (
 
 func main() {
 	ctx := context.Background()
-	ctx, cancel := context.WithTimeout(ctx, time.Minute)
+	ctx, cancel := context.WithTimeout(ctx, time.Second)
 
 	defer cancel()
 
-	req, err := http.NewRequestWithContext(ctx, "get", "http://google.com/", nil)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://google.com/", nil)
 
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
 	res, err := http.DefaultClient.Do(req)
@@ -27,7 +28,13 @@ func main() {
 		fmt.Println(err)
 	}
 
-	defer res.Body.Close()
+	defer func(res *http.Response) {
+		if err = res.Body.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}(res)
 
-	io.CopyBuffer(os.Stdout, res.Body, nil)
+	if _, err = io.CopyBuffer(os.Stdout, res.Body, nil); err != nil {
+		panic(err)
+	}
 }
