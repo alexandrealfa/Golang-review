@@ -27,6 +27,7 @@ func getBananas(w http.ResponseWriter, r *http.Request) {
 		// http.Error(w, "Request hasn't Processed because client canceled", http.StatusRequestTimeout)
 	}
 }
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", getBananas)
