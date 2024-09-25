@@ -84,6 +84,18 @@ func selectAllProducts(db *sql.DB) ([]Product, error) {
 	return products, err
 }
 
+func deleteProduct(db *sql.DB, id string) error {
+	stmt, err := db.Prepare("delete from products where id = ?")
+	if err != nil {
+		return err
+	}
+	if _, err = stmt.Exec(id); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func main() {
 	db, err := sql.Open("mysql", "root:root@tcp(localhost:3306)/goreview")
 
@@ -115,6 +127,11 @@ func main() {
 	}
 	for _, product := range products {
 		fmt.Println(product)
+	}
+
+	fmt.Println("removing :", product.Id)
+	if err = deleteProduct(db, product.Id); err != nil {
+		log.Fatal(err)
 	}
 	return
 }
