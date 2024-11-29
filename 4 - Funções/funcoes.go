@@ -14,6 +14,14 @@ func calculosMatematicos(n1, n2 int8) (int8, int8) {
 	return soma, subtracao
 }
 
+func printProperties(a string, b int) {
+	fmt.Println(a)
+	fmt.Println(b)
+}
+
+func myStatements() (string, int) {
+	return "salve", 10
+}
 func main() {
 	soma := somar(2, 4)
 	fmt.Println(soma)
@@ -32,4 +40,7 @@ func main() {
 	// neste caso a funcao me retorna 2 valores porém o underline oculta o valor selecionado.
 	resultadoSoma2, _ := calculosMatematicos(10, 14)
 	fmt.Println(resultadoSoma2)
+
+	// neste caso a função recebe suas propriedades dinamicamente a partir do retorno de outra função.
+	printProperties(myStatements())
 }
